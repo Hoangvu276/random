@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('https://image.infographics.vn/media//2024/12/30/214002/data/485a2765ded4d378ecf88c105c2e19c8.gif') no-repeat center center fixed;
+    background: url('background.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+    text-align: center;
+}
+
+.container {
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6);
+    margin: 20px auto;
+    border-radius: 50px;
+    width: 80%;
+    max-width: 800px;
+}
+
+h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #ffd700;
+	text-align: center;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #ff4500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff6347;
+}
+
+.result {
+    margin-top: 20px;
+    text-align: center;
+}
+
+h2{
+	margin-top: 20px;
+    text-align: center;
+}
+
+.history {
+	margin-top: 20px;
+	text-align: left;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.1);
+    margin: 5px 0;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1.1rem;
+}
+/* Các hiệu ứng hiển thị số */
+.result ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Mỗi dòng có 5 số */
+    gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.result li {
+    font-size: 1.5rem;
+    color: #ffd700;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInFromTop 0.5s ease-in-out forwards;
+}
+
+/* Hiệu ứng mờ dần từ trên xuống */
+@keyframes fadeInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #ff4500;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff6347;
+}
