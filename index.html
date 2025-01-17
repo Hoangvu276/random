@@ -19,6 +19,17 @@
             Trình duyệt của bạn hỗ trợ phát nhạc.
         </audio>
 
+		<!-- Chọn số lượng số -->
+		<div class="settings">
+			<label for="number-count">Số lượng số mỗi lần quay:</label>
+			<input type="number" id="number-count" min="1" max="100" value="10" />
+		</div>
+
+		 <!-- Hiển thị số lượng số đã quay -->
+		<div class="counter">
+			<p>Đã quay: <span id="used-numbers-count">0</span>/1910</p>
+		</div>
+
         <!-- Nút quay số -->
         <button id="spin-button">Quay số</button>
 
@@ -31,6 +42,8 @@
             <h2>Lịch sử quay</h2>
             <ul id="history-list"></ul>
         </div>
+		
+		
     </div>
 
     <script src="script.js"></script>
