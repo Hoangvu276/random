@@ -110,3 +110,37 @@ button {
 button:hover {
     background-color: #ff6347;
 }
+
+.settings {
+    margin: 20px 0;
+    text-align: center;
+}
+
+.settings label {
+    font-size: 1rem;
+    color: #ffd700;
+    margin-right: 10px;
+}
+
+.settings input {
+    font-size: 1rem;
+    padding: 5px;
+    width: 60px;
+    text-align: center;
+    border: 2px solid #ffd700;
+    border-radius: 5px;
+    background-color: #000;
+    color: #fff;
+}
+
+.counter {
+    margin: 20px 0;
+    font-size: 1.2rem;
+    color: #ffd700;
+    text-align: center;
+}
+.counter p {
+    margin: 0;
+}
+
+
