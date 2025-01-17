@@ -1,6 +1,8 @@
 const resultsList = document.getElementById('results-list');
 const historyList = document.getElementById('history-list');
 const spinButton = document.getElementById('spin-button');
+const numberCountInput = document.getElementById('number-count');
+const usedNumbersCount = document.getElementById('used-numbers-count');
 
 let usedNumbers = new Set();
 let spinCount = 0; // Biến đếm số lần quay
@@ -9,9 +11,9 @@ function getRandomNumber(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function spinWheel() {
+function spinWheel(numberCount) {
     const results = [];
-    while (results.length < 10) {
+    while (results.length < numberCount) {
         const num = getRandomNumber(1, 1910);
         if (!usedNumbers.has(num)) {
             results.push(num);
@@ -40,18 +42,22 @@ function showHistory(results) {
     historyList.appendChild(historyItem);
 }
 
+function updateUsedNumbersCount() {
+    usedNumbersCount.textContent = usedNumbers.size; // Cập nhật số lượng số đã quay
+}
+
 spinButton.addEventListener('click', () => {
-    if (usedNumbers.size >= 1910) {
-        alert("Tất cả các số trong phạm vi đã được quay!");
+    const numberCount = parseInt(numberCountInput.value, 10); // Lấy số lượng số từ người dùng
+    if (usedNumbers.size + numberCount > 1910) {
+        alert("Không còn đủ số để quay!");
         return;
     }
 
-    // Hiệu ứng quay số
     spinButton.disabled = true; // Vô hiệu hóa nút khi đang quay
     resultsList.innerHTML = '<li>Đang quay...</li>'; // Hiển thị trạng thái quay tạm thời
 
     setTimeout(() => {
-        const results = spinWheel();
+        const results = spinWheel(numberCount);
 
         // Hiển thị số theo thứ tự từ trên xuống
         showNumbersSequentially(results);
@@ -59,9 +65,9 @@ spinButton.addEventListener('click', () => {
         // Ghi vào lịch sử sau khi tất cả số đã quay xong
         setTimeout(() => {
             showHistory(results);
-        }, results.length * 500); // Đợi cho đến khi tất cả số đã hiển thị xong
-
-        spinButton.disabled = false; // Bật lại nút
+            updateUsedNumbersCount(); // Cập nhật số lượng số đã quay
+            spinButton.disabled = false; // Bật lại nút
+        }, results.length * 500);
     }, 1000); // Giả lập thời gian quay
 });
 
@@ -81,5 +87,3 @@ document.addEventListener('DOMContentLoaded', () => {
     // Lắng nghe sự kiện click trên trang để phát nhạc nếu cần
     document.addEventListener('click', playMusic, { once: true });
 });
-
-
